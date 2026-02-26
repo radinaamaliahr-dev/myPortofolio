@@ -1,0 +1,207 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins', sans-serif;
+}
+
+/* ================= BACKGROUND ================= */
+body{
+    min-height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    background: linear-gradient(-45deg, #ffb6c1, #ffd6a5, #cdb4db, #a0c4ff);
+    background-size:400% 400%;
+    animation:gradient 12s ease infinite;
+    overflow:hidden;
+    position:relative;
+}
+
+@keyframes gradient{
+    0%{background-position:0% 50%;}
+    50%{background-position:100% 50%;}
+    100%{background-position:0% 50%;}
+}
+
+/* ================= BUBBLE GIGI RANDOM ================= */
+
+body::before,
+body::after{
+    position: fixed;
+    font-size: 60px;
+    opacity: 0.9;
+    pointer-events: none;
+}
+
+/* Bubble kiri */
+body::before{
+    content: "🦷";
+    left: 10%;
+    bottom: -100px;
+    animation: floatLeft 7s linear infinite;
+}
+
+/* Bubble kanan */
+body::after{
+    content: "🦷";
+    left: 80%;
+    bottom: -100px;
+    animation: floatRight 8s linear infinite;
+}
+
+/* Tambahan bubble pakai html */
+html::before,
+html::after{
+    content: "🦷";
+    position: fixed;
+    font-size: 70px;
+    bottom: -120px;
+    opacity: 0.85;
+    pointer-events: none;
+}
+
+html::before{
+    left: 35%;
+    animation: floatMiddle 7s linear infinite;
+}
+
+html::after{
+    left: 60%;
+    animation: floatZigzag 9s linear infinite;
+}
+
+/* ANIMASI BERBEDA-BEDA */
+
+@keyframes floatLeft{
+    0%{ transform: translateY(0) translateX(0); opacity:1;}
+    100%{ transform: translateY(-120vh) translateX(40px); opacity:0;}
+}
+
+@keyframes floatRight{
+    0%{ transform: translateY(0) translateX(0); opacity:1;}
+    100%{ transform: translateY(-120vh) translateX(-50px); opacity:0;}
+}
+
+@keyframes floatMiddle{
+    0%{ transform: translateY(0) scale(0.8); opacity:1;}
+    50%{ transform: translateY(-60vh) translateX(30px) scale(1);}
+    100%{ transform: translateY(-120vh) translateX(-20px) scale(1.2); opacity:0;}
+}
+
+@keyframes floatZigzag{
+    0%{ transform: translateY(0) translateX(0);}
+    25%{ transform: translateY(-30vh) translateX(-30px);}
+    50%{ transform: translateY(-60vh) translateX(40px);}
+    75%{ transform: translateY(-90vh) translateX(-20px);}
+    100%{ transform: translateY(-120vh) translateX(30px); opacity:0;}
+}
+
+/* ================= CARD ================= */
+.card{
+    width:480px;
+    background:rgba(255,255,255,0.35);
+    backdrop-filter:blur(15px);
+    border-radius:25px;
+    padding:25px;
+    text-align:center;
+    box-shadow:0 10px 30px rgba(0,0,0,0.2);
+    position:relative;
+    z-index:1;
+}
+
+/* FOTO TENGAH */
+.profile-container{
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+}
+
+.profile-img{
+    width:150px;
+    height:150px;
+    border-radius:50%;
+    object-fit:cover;
+    border:5px solid white;
+    margin-bottom:10px;
+    transition:0.3s;
+}
+
+.profile-img:hover{
+    transform:scale(1.05);
+}
+
+/* INPUT DISEMBUNYIKAN */
+input[type="file"]{
+    display:none;
+}
+
+/* BUTTON */
+.upload-btn{
+    padding:8px 18px;
+    background:#6c63ff;
+    color:white;
+    border-radius:20px;
+    font-size:13px;
+    cursor:pointer;
+    transition:0.3s;
+}
+
+.upload-btn:hover{
+    background:#5848e5;
+}
+
+/* JUDUL */
+.title{
+    font-size:20px;
+    font-weight:700;
+    margin-top:15px;
+    margin-bottom:3px;
+}
+
+/* NAMA */
+.header{
+    font-size:17px;
+    font-weight:600;
+    margin-bottom:12px;
+}
+
+/* BODY */
+.body-box{
+    background:white;
+    padding:14px;
+    border-radius:15px;
+    margin:10px 0;
+    text-align:justify;
+    font-size:12.5px;
+    line-height:1.6;
+    box-shadow:0 4px 10px rgba(0,0,0,0.1);
+    border:1px solid #e0e0e0;
+}
+
+/* FOOTER */
+.footer{
+    margin-top:10px;
+}
+
+.footer table{
+    width:100%;
+    border-collapse:collapse;
+    background:white;
+    border-radius:12px;
+    overflow:hidden;
+    box-shadow:0 4px 10px rgba(0,0,0,0.1);
+}
+
+.footer td{
+    padding:12px;
+    font-size:12.5px;
+    text-align:left;
+    border:1px solid #e0e0e0;
+}
+
+.footer td:first-child{
+    font-weight:600;
+    width:30%;
+    background:#f9f9f9;
+}
